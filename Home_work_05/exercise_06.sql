@@ -1,0 +1,32 @@
+
+/*
+
+                                Практическое задание по теме «Агрегация данных».
+
+
+    1. Подсчитайте средний возраст пользователей в таблице users.
+
+*/
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) COMMENT 'Имя покупателя',
+  birthday_at DATE COMMENT 'Дата рождения',
+  created_at DATETIME,
+  updated_at DATETIME
+) COMMENT = 'Покупатели';
+
+INSERT INTO
+  users (name, birthday_at, created_at, updated_at)
+VALUES
+  ('Геннадий', '1990-10-05', now(), now()),
+  ('Наталья', '1984-11-12', now(), now()),
+  ('Александр', '1985-05-20', now(), now()),
+  ('Сергей', '1988-02-14', now(), now()),
+  ('Иван', '1998-01-12', now(), now()),
+  ('Мария', '2006-08-29', now(), now());
+
+ALTER TABLE users ADD age INT; --
+UPDATE users SET age = FLOOR(DATEDIFF(curdate(), birthday_at) / 365.25);
+SELECT AVG(age) FROM users;
