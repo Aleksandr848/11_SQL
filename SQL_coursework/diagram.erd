@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="books11">
+	<entities>
+		<data-source id="mysql8-17853d8383c-7a15de0d37f59d">
+			<entity id="1" name="audiobooks" fq-name="allbooks.audiobooks">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="2" name="authors" fq-name="allbooks.authors">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="3" name="books" fq-name="allbooks.books">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="4" name="books_genre" fq-name="allbooks.books_genre">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="5" name="books_tag" fq-name="allbooks.books_tag">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="6" name="countries" fq-name="allbooks.countries">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="7" name="electronic_book_format" fq-name="allbooks.electronic_book_format">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="8" name="electronic_books" fq-name="allbooks.electronic_books">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="9" name="genres" fq-name="allbooks.genres">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="10" name="languages" fq-name="allbooks.languages">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="11" name="paper_books" fq-name="allbooks.paper_books">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="12" name="quotes" fq-name="allbooks.quotes">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="13" name="rating" fq-name="allbooks.rating">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="14" name="readers" fq-name="allbooks.readers">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="15" name="reviews" fq-name="allbooks.reviews">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="16" name="tags" fq-name="allbooks.tags">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="17" name="translators" fq-name="allbooks.translators">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="18" name="user_profiles" fq-name="allbooks.user_profiles">
+				<path name="allbooks"/>
+			</entity>
+			<entity id="19" name="users" fq-name="allbooks.users">
+				<path name="allbooks"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="fk_books_authors" fq-name="allbooks.books.fk_books_authors" type="fk" pk-ref="2" fk-ref="3"/>
+		<relation name="fk_audiobooks_books" fq-name="allbooks.audiobooks.fk_audiobooks_books" type="fk" pk-ref="3" fk-ref="1"/>
+		<relation name="fk_booksgenre_books" fq-name="allbooks.books_genre.fk_booksgenre_books" type="fk" pk-ref="3" fk-ref="4"/>
+		<relation name="fk_bookstag_books" fq-name="allbooks.books_tag.fk_bookstag_books" type="fk" pk-ref="3" fk-ref="5"/>
+		<relation name="fk_elbooks_books" fq-name="allbooks.electronic_books.fk_elbooks_books" type="fk" pk-ref="3" fk-ref="8"/>
+		<relation name="fk_paperbooks_books" fq-name="allbooks.paper_books.fk_paperbooks_books" type="fk" pk-ref="3" fk-ref="11"/>
+		<relation name="fk_quotes_books" fq-name="allbooks.quotes.fk_quotes_books" type="fk" pk-ref="3" fk-ref="12"/>
+		<relation name="fk_rating_books" fq-name="allbooks.rating.fk_rating_books" type="fk" pk-ref="3" fk-ref="13"/>
+		<relation name="fk_reviews_books" fq-name="allbooks.reviews.fk_reviews_books" type="fk" pk-ref="3" fk-ref="15"/>
+		<relation name="fk_authors_countries" fq-name="allbooks.authors.fk_authors_countries" type="fk" pk-ref="6" fk-ref="2"/>
+		<relation name="fk_user_profiles_countries" fq-name="allbooks.user_profiles.fk_user_profiles_countries" type="fk" pk-ref="6" fk-ref="18"/>
+		<relation name="fk_elbooks_format" fq-name="allbooks.electronic_books.fk_elbooks_format" type="fk" pk-ref="7" fk-ref="8"/>
+		<relation name="fk_booksgenre_genres" fq-name="allbooks.books_genre.fk_booksgenre_genres" type="fk" pk-ref="9" fk-ref="4"/>
+		<relation name="fk_books_languages" fq-name="allbooks.books.fk_books_languages" type="fk" pk-ref="10" fk-ref="3"/>
+		<relation name="fk_user_profiles_languages" fq-name="allbooks.user_profiles.fk_user_profiles_languages" type="fk" pk-ref="10" fk-ref="18"/>
+		<relation name="fk_audiobooks_readers" fq-name="allbooks.audiobooks.fk_audiobooks_readers" type="fk" pk-ref="14" fk-ref="1"/>
+		<relation name="fk_bookstag_tags" fq-name="allbooks.books_tag.fk_bookstag_tags" type="fk" pk-ref="16" fk-ref="5"/>
+		<relation name="fk_books_translators" fq-name="allbooks.books.fk_books_translators" type="fk" pk-ref="17" fk-ref="3"/>
+		<relation name="fk_rating_users" fq-name="allbooks.rating.fk_rating_users" type="fk" pk-ref="19" fk-ref="13"/>
+		<relation name="fk_reviews_users" fq-name="allbooks.reviews.fk_reviews_users" type="fk" pk-ref="19" fk-ref="15"/>
+		<relation name="fk_user_profiles_users" fq-name="allbooks.user_profiles.fk_user_profiles_users" type="fk" pk-ref="19" fk-ref="18"/>
+	</relations>
+</diagram>
